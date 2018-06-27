@@ -51,6 +51,9 @@ int isNum(char *num){
 int isVar(char *var){
     if (strlen(var) == 1)
         return *var >= 'a' && *var <= 'z';
+    else if (strlen(var) == 2){
+        return *var >= 'a' && *var <= 'z' && var[1] == '\n';
+    }
     return 0;
 }
 
@@ -65,12 +68,18 @@ int isValidExp(char *exp){
     int lparen = 0, rparen = 0;
     for (i = 0; i < strlen(exp); ++i) {
         if (exp[i] == '(') lparen++;
+        else if(exp[i] >= 'a' && exp[i] <= 'z');
         else if (exp[i] == ')') rparen++;
-        else if ((exp[i] >= '0' && exp[i] <= '9') ||
+        else if ((exp[i] >= '0' && exp[i] <= '9') ||(
                 exp[i] == '+' ||
                 exp[i] == '-' ||
                 exp[i] == '*' ||
-                exp[i] == '/');
+                exp[i] == '/' ||
+                exp[i] == ' ' ));
+        else if (exp[i] == '\n') {
+            exp[i] = '\0';
+            return 1;
+        }
         else{
             return 0;
         }
@@ -90,4 +99,14 @@ int operador( char c ) {
     else if( c == '-' ) return SUB;
     else if( c == '*' ) return MUL;
     else if( c == '/' ) return DIV;
+}
+
+int classifLogicos(char *op){
+    if (!strcmp(op, "==")) return IGUAL;
+    else if (!strcmp(op, "!=")) return DIFERENTE;
+    else if (!strcmp(op, "<")) return MENOR;
+    else if (!strcmp(op, ">")) return MAIOR;
+    else if (!strcmp(op, "<=")) return MENORGUAL;
+    else if (!strcmp(op, ">=")) return MAIORIGUAL;
+    else return -1;
 }

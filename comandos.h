@@ -1,7 +1,3 @@
-//
-// Created by Hideki Nakata on 26/06/2018.
-//
-
 #ifndef SIMPLETRONC_COMANDOS_H
 #define SIMPLETRONC_COMANDOS_H
 
@@ -9,6 +5,7 @@
 
 #define READ 1000       //Lê uma palavra do teclado para uma posição específica da memória.
 #define WRITE 1100      //Escreve na tela uma palavra de uma posição específica da memória.
+#define WCONST 1300     //WriteConst atribui uma constante a um valor na memoria
 #define LOAD 2000       //Carrega uma palavra de uma posição específica na memória para o acumulador.
 #define STORE 2100      //Armazena uma palavra do acumulador em uma posição específica na memória.
 #define ADD 3000        //Adiciona uma palavra de uma posição específica na memória à palavra no acumulador (deixa o resultado no acumulador).
@@ -21,6 +18,7 @@
 #define HALT 4300       //Finaliza o programa.
 
 typedef enum{rem, input, let, print, goto_, if_, end} comandos;
+typedef enum{IGUAL, DIFERENTE, MAIOR, MENOR, MAIORIGUAL, MENORGUAL}opLogico;
 
 int tipoComando(char *string);
 int isNum(char *num);
@@ -28,4 +26,5 @@ int isVar(char *var);
 int isOp(char *var);
 int isValidExp(char *exp);
 int operador( char c );
+int classifLogicos(char *op);
 #endif //SIMPLETRONC_COMANDOS_H

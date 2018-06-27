@@ -7,7 +7,7 @@
 
 typedef struct localStack{
     int local;
-    struct adressStack *prox;
+    struct localStack *prox;
 }StackReg;
 
 typedef StackReg* Stack;

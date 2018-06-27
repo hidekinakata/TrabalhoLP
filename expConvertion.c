@@ -18,7 +18,7 @@ void In2Pos(char *infix, char *posfix){
     do{
         c = infix[i];
         i++;
-        if(c >= 'a' && c <= 'z'){
+        if(c >= 'a' && c <= 'z' || (c >= '0' && c <= '9')){
             aux[0] = c;
             strcat(posfix, aux);
         }

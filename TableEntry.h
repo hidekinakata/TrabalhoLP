@@ -7,6 +7,10 @@
 
 #define MAX 100
 
+#define LINE 'L'
+#define CONSTC 'C'
+#define VAR 'V'
+
 typedef struct entry TableEntry;
 struct entry {
     int symbol;
@@ -15,7 +19,7 @@ struct entry {
 };
 
 void iniciaTabela(TableEntry *tabela);
-int busca(TableEntry *tabela, int simbolo);
+int busca(TableEntry *tabela, int simbolo, char tipo);
 void insereVAR( TableEntry *symbolTable, int data, int *contadorDados, int *contadorTabela );
 void InsereCONST( TableEntry *symbolTable, int data, int *contadorDados, int *contadorTabela );
 void insereLINE( TableEntry *symbolTable, int data, int *contadorInstrucao, int *contadorTabela );

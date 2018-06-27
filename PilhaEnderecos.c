@@ -20,7 +20,7 @@ Stack criaStack(){
     return p;
 }
 
-void LiberaPilha(Stack p){
+void LiberaStack(Stack p){
     StackReg *q,*t;
     q = p;
     while(q!=NULL){
@@ -30,7 +30,7 @@ void LiberaPilha(Stack p){
     }
 }
 
-bool PilhaVazia(Stack p){
+bool StackVazia(Stack p){
     return (p->prox==NULL);
 }
 
@@ -46,7 +46,6 @@ int pop(Stack p){
     StackReg *q;
     int x;
     q = (StackReg *) p->prox;
-    if(q==NULL) exit(-1);
     x = q->local;
     p->prox = q->prox;
     free(q);

@@ -14,10 +14,10 @@ void iniciaTabela(TableEntry *tabela){
 }
 
 //retona a posição do simbolo, se achar
-int busca(TableEntry *tabela, int simbolo){
+int busca(TableEntry *tabela, int simbolo, char tipo){
     int i;
     for (i = 1; i < MAX; i++) {
-        if (tabela[i].symbol == simbolo)
+        if (tabela[i].symbol == simbolo && tabela[i].type == tipo)
             return i;
     }
     return 0;
